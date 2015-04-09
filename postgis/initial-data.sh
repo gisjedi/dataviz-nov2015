@@ -14,9 +14,10 @@ SHAPEFILEZIP=$(basename $SHAPEFILEZIP)
 unzip $SHAPEFILEZIP
 rm $SHAPEFILEZIP
 
-SHAPEFILEPRE=`echo $SHAPEFILEZIP | cut -d "_shapefile" -f 1`
+SHAPEFILEPRE=${SHAPEFILEZIP/_shapefile/}
+SHAPEFILEPRE=`echo $SHAPEFILEPRE | cut -d "." -f 1`
 echo $SHAPEFILEPRE
-#shp2pgsql -I -D -s 4326 $SHAPEFILEPRE.shp modis_$YEAR > $SHAPEFILEPRE.sql  
+su - postgres -c "shp2pgsql -I -D -s 4326 $SHAPEFILEPRE.shp modis_${YEAR} | psql -U docker gis"
 
 rm $SHAPEFILEPRE.*
 

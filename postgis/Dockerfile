@@ -27,4 +27,7 @@ RUN /setup.sh
 ADD start-postgis.sh /start-postgis.sh
 RUN chmod 0755 /start-postgis.sh
 
+ADD initial-data.sh /initial-data.sh
+RUN chmod 0755 /initial-data.sh
+
 CMD /start-postgis.sh

@@ -97,6 +97,8 @@ else
     # Create a default db called 'gis' that you can use to get up and running quickly
     # It will be owned by the docker db user
     su - postgres -c "createdb -O $USERNAME -T template_postgis gis"
+
+    ./initial-data.sh
 fi
 # This should show up in docker logs afterwards
 su - postgres -c "psql -l"
