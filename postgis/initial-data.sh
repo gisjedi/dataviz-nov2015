@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Add test database
+POSTGRES="gosu postgres postgres"
+
+$POSTGRES --single -E <<EOSQL
+CREATE DATABASE testdb
+EOSQL
+
 # Identify year for pulling data
 YEAR=$(date +'%Y')
 SOURCEPAGE=modisfire_${YEAR}_conus.htm
@@ -20,14 +27,7 @@ rm $SHAPEFILEZIP
 SHAPEFILEPRE=${SHAPEFILEZIP/_shapefile/}
 SHAPEFILEPRE=`echo $SHAPEFILEPRE | cut -d "." -f 1`
 echo $SHAPEFILEPRE
-shp2pgsql -I -D -s 4326 $SHAPEFILEPRE.shp modis_${YEAR} > $SHAPEFILEPRE.sql
-
-# Add test database
-POSTGRES="gosu postgres postgres"
-
-$POSTGRES --single -E <<EOSQL
-CREATE DATABASE testdb
-EOSQL
+shp2pgsql -I -c -D -s 4326 $SHAPEFILEPRE.shp public.modis_${YEAR} > $SHAPEFILEPRE.sql
 
 # Add postgis extension and load data
 POSTGIS_CONFIG=/usr/share/postgresql/$PG_MAJOR/contrib/postgis-$POSTGIS_MAJOR

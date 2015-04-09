@@ -1,6 +1,9 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
-FROM mdillon:postgis 
+FROM mdillon/postgis 
 MAINTAINER Jonathan Meyer<jon@gisjedi.com>
+
+RUN apt-get update \
+      && apt-get install -y wget unzip  
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
