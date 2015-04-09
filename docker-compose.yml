@@ -4,7 +4,7 @@ postgis:
   volumes:
   - ./postgres_data:/var/lib/postgresql
 geoserver:
-  build: geoserver
+  image: kartoza/geoserver
   hostname: geoserver
   links:
   - postgis:postgis
