@@ -20,10 +20,9 @@ rm $SHAPEFILEZIP
 echo stripping file name to prefix
 SHAPEFILEPRE=${SHAPEFILEZIP/_shapefile/}
 SHAPEFILEPRE=`echo $SHAPEFILEPRE | cut -d "." -f 1`
-shp2pgsql -I -c -D -s 4326 $SHAPEFILEPRE.shp public.modis_${YEAR} > /tmp/tempdata.sql
+shp2pgsql -I -D -d -s 4326 $SHAPEFILEPRE.shp public.modis_${YEAR} > /tmp/tempdata.sql
 
 # Start  database so that we can execute the data intialization tasks
-/etc/init.d/postgresql start 
 psql -c "CREATE DATABASE testdb;"
 psql -c "CREATE EXTENSION postgis;" testdb
 psql -f /tmp/tempdata.sql testdb

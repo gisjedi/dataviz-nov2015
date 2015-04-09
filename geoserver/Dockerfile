@@ -19,10 +19,5 @@ RUN if [ ! -f /tmp/resources/geoserver.zip ]; then \
 ENV GEOSERVER_DATA_DIR /opt/geoserver/data
 ENV JAVA_HOME /usr/
 
-ADD initialize-test.sh /tmp/geoserver/initialize-test.sh
-ADD test-store.xml /tmp/geoserver/test-store.xml
-RUN chmod 0755 /tmp/geoserver/initialize-test.sh
-RUN cd /tmp/geoserver && ./initialize-test.sh
-
 EXPOSE 8080
 CMD ["catalina.sh", "run"]

@@ -1,12 +1,17 @@
 postgis:
-  build: postgis
+  image: kartoza/postgis
   hostname: postgis
+  ports:
+  - "5432:5432"
   volumes:
-  - ./postgres_data:/var/lib/postgresql
+  - ./postgis:/tmp/postgis
 geoserver:
-  image: kartoza/geoserver
+  build: geoserver 
   hostname: geoserver
+  ports:
+  - "8080:8080"
   links:
   - postgis:postgis
   volumes:
   - ./geoserver_data:/opt/geoserver/data_dir
+  - ./geoserver:/tmp/geoserver
