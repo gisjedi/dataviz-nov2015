@@ -3,9 +3,9 @@
   <connectionParameters>
     <host>postgis</host>
     <port>5432</port>
-    <database>postgres</database>
-    <user>docker</user>
-    <passwd>docker</passwd>
+    <database>testdb</database>
+    <user>postgres</user>
+    <passwd>postgres</passwd>
     <dbtype>postgis</dbtype>
   </connectionParameters>
 </dataStore>
