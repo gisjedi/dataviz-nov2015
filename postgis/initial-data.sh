@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Ensure we are in a location that is writable
+cd /tmp
+
 # Identify year for pulling data
 YEAR=$(date +'%Y')
 SOURCEPAGE=modisfire_${YEAR}_conus.htm
