@@ -13,5 +13,6 @@ geoserver:
   links:
   - postgis:postgis
   volumes:
-  - ./geoserver_data:/opt/geoserver/data_dir
+  - ./geoserver_data:/srv/geoserver
+  - ./mosaics:/srv/geoserver/mosiacs
   - ./geoserver:/tmp/geoserver

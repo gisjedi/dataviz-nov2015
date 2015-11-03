@@ -15,8 +15,8 @@ RUN apt-get -y install unzip
 RUN if [ ! -f /tmp/resources/geoserver.zip ]; then \
     wget -c http://downloads.sourceforge.net/project/geoserver/GeoServer/2.7.0/geoserver-2.7.0-war.zip -O /tmp/geoserver.zip; \
     fi; \
-    unzip /tmp/geoserver.zip geoserver.war -d $CATALINA_HOME/webapps && mkdir -p /opt/geoserver/data
-ENV GEOSERVER_DATA_DIR /opt/geoserver/data
+    unzip /tmp/geoserver.zip geoserver.war -d $CATALINA_HOME/webapps && mkdir -p /srv/geoserver
+ENV GEOSERVER_DATA_DIR /srv/geoserver
 ENV JAVA_HOME /usr/
 
 EXPOSE 8080
