@@ -1,5 +1,5 @@
-# docker-compose-modis
-Scripts to construct docker containers and populate with a stream of data based on MODIS.
+# docker-compose-geodata
+Scripts to construct docker containers and populate with a up to date MODIS and VIIRS DNB data.
 
 ## Build
 Construct the GeoServer container by running build:
@@ -15,6 +15,10 @@ Create daemonized instance of the PostGIS and GeoServer containers:
 Populate the PostGIS with MODIS data and GeoServer with layer exposing table:
 
 ```bash initial-modis.sh```
+
+Populate the PostGIS with VIIRS data footprints and GeoServer with layer exposing GeoTIFFs:
+
+```bash initial-viirs-dnb.sh```
 
 ## Prosper
 Identify your GeoServer containers IP and start consuming the services:
