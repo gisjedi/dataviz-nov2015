@@ -26,9 +26,9 @@ SHAPEFILEPRE=`echo $SHAPEFILEPRE | cut -d "." -f 1`
 shp2pgsql -I -D -d -s 4326 $SHAPEFILEPRE.shp public.modis_${YEAR} > /tmp/tempdata.sql
 
 # Start  database so that we can execute the data intialization tasks
-psql -c "CREATE DATABASE testdb;"
-psql -c "CREATE EXTENSION postgis;" testdb
-psql -f /tmp/tempdata.sql testdb
+psql -c "CREATE DATABASE modis;"
+psql -c "CREATE EXTENSION postgis;" modis
+psql -f /tmp/tempdata.sql modis
 
 # Cleanup scratch files
 rm $SHAPEFILEPRE.*

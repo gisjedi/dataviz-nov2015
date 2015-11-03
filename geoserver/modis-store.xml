@@ -1,9 +1,9 @@
 <dataStore>
-  <name>test</name>
+  <name>modis</name>
   <connectionParameters>
     <host>postgis</host>
     <port>5432</port>
-    <database>testdb</database>
+    <database>modis</database>
     <user>docker</user>
     <passwd>docker</passwd>
     <dbtype>postgis</dbtype>

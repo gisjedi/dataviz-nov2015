@@ -1,0 +1,167 @@
+<coverage>
+    <name>viirs-dnb</name>
+    <nativeName>viirs-dnb</nativeName>
+    <namespace>
+        <name>mosaic</name>
+    </namespace>
+    <title>VIIRS Day-Night Band</title>
+    <description>Generated from ImageMosaic</description>
+    <abstract>
+        Suomi NPP satelitte VIIRS sensor DNB collects.
+
+        Source:
+        ftp://ftp.ssec.wisc.edu/pub/eosdb/npp/viirs/
+    </abstract>
+    <keywords>
+        <string>WCS</string>
+        <string>ImageMosaic</string>
+        <string>viirs_dnb</string>
+    </keywords>
+    <nativeCRS>
+        GEOGCS["WGS 84", DATUM["World Geodetic System 1984", SPHEROID["WGS 84", 6378137.0, 298.257223563,
+        AUTHORITY["EPSG","7030"]], AUTHORITY["EPSG","6326"]], PRIMEM["Greenwich", 0.0, AUTHORITY["EPSG","8901"]],
+        UNIT["degree", 0.017453292519943295], AXIS["Geodetic longitude", EAST], AXIS["Geodetic latitude", NORTH],
+        AUTHORITY["EPSG","4326"]]
+    </nativeCRS>
+    <srs>EPSG:4326</srs>
+    <nativeBoundingBox>
+        <minx>-177.213104248047</minx>
+        <maxx>-35.9802756347656</maxx>
+        <miny>12.7376881347656</miny>
+        <maxy>74.6564559936523</maxy>
+        <crs>EPSG:4326</crs>
+    </nativeBoundingBox>
+    <latLonBoundingBox>
+        <minx>-177.213104248047</minx>
+        <maxx>-35.9802756347656</maxx>
+        <miny>12.7376881347656</miny>
+        <maxy>74.6564559936523</maxy>
+        <crs>EPSG:4326</crs>
+    </latLonBoundingBox>
+    <projectionPolicy>REPROJECT_TO_DECLARED</projectionPolicy>
+    <enabled>true</enabled>
+    <metadata>
+        <entry key="time">
+            <dimensionInfo>
+                <enabled>true</enabled>
+                <presentation>CONTINUOUS_INTERVAL</presentation>
+                <units>ISO8601</units>
+                <defaultValue/>
+            </dimensionInfo>
+        </entry>
+        <entry key="elevation">
+            <dimensionInfo>
+                <enabled>false</enabled>
+            </dimensionInfo>
+        </entry>
+        <entry key="dirName">viirs-dnb_viirs_dnb</entry>
+    </metadata>
+    <store class="coverageStore">
+        <name>mosaic:viirs-dnb</name>
+    </store>
+    <nativeFormat>ImageMosaic</nativeFormat>
+    <grid dimension="2">
+        <range>
+            <low>0 0</low>
+            <high>24777 10862</high>
+        </range>
+        <transform>
+            <scaleX>0.0057</scaleX>
+            <scaleY>-0.0057</scaleY>
+            <shearX>0.0</shearX>
+            <shearY>0.0</shearY>
+            <translateX>-177.210254248047</translateX>
+            <translateY>74.6536059936523</translateY>
+        </transform>
+        <crs>EPSG:4326</crs>
+    </grid>
+    <supportedFormats>
+        <string>Gtopo30</string>
+        <string>GEOTIFF</string>
+        <string>GIF</string>
+        <string>PNG</string>
+        <string>JPEG</string>
+        <string>TIFF</string>
+        <string>ArcGrid</string>
+        <string>ImageMosaic</string>
+    </supportedFormats>
+    <interpolationMethods>
+        <string>nearest neighbor</string>
+        <string>bilinear</string>
+        <string>bicubic</string>
+    </interpolationMethods>
+    <defaultInterpolationMethod>nearest neighbor</defaultInterpolationMethod>
+    <dimensions>
+        <coverageDimension>
+            <name>GRAY_INDEX</name>
+            <description>GridSampleDimension[0.0,0.0]</description>
+            <range>
+                <min>0.0</min>
+                <max>0.0</max>
+            </range>
+            <nullValues>
+                <double>0.0</double>
+            </nullValues>
+            <dimensionType>
+                <name>UNSIGNED_8BITS</name>
+            </dimensionType>
+        </coverageDimension>
+    </dimensions>
+    <requestSRS>
+        <string>EPSG:4326</string>
+    </requestSRS>
+    <responseSRS>
+        <string>EPSG:4326</string>
+    </responseSRS>
+    <parameters>
+        <entry>
+            <string>AllowMultithreading</string>
+            <string>false</string>
+        </entry>
+        <entry>
+            <string>MergeBehavior</string>
+            <string>FLAT</string>
+        </entry>
+        <entry>
+            <string>FootprintBehavior</string>
+            <string>None</string>
+        </entry>
+        <entry>
+            <string>Filter</string>
+            <null/>
+        </entry>
+        <entry>
+            <string>MaxAllowedTiles</string>
+            <string>-1</string>
+        </entry>
+        <entry>
+            <string>SORTING</string>
+            <null/>
+        </entry>
+        <entry>
+            <string>InputTransparentColor</string>
+            <string/>
+        </entry>
+        <entry>
+            <string>OutputTransparentColor</string>
+            <string>#000000</string>
+        </entry>
+        <entry>
+            <string>SUGGESTED_TILE_SIZE</string>
+            <string>512,512</string>
+        </entry>
+        <entry>
+            <string>Accurate resolution computation</string>
+            <string>false</string>
+        </entry>
+        <entry>
+            <string>USE_JAI_IMAGEREAD</string>
+            <string>true</string>
+        </entry>
+        <entry>
+            <string>BackgroundValues</string>
+            <null/>
+        </entry>
+    </parameters>
+    <nativeCoverageName>viirs_dnb</nativeCoverageName>
+</coverage>

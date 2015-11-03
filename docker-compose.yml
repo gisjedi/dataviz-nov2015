@@ -14,5 +14,4 @@ geoserver:
   - postgis:postgis
   volumes:
   - ./geoserver_data:/srv/geoserver
-  - ./mosaics:/srv/geoserver/mosiacs
   - ./geoserver:/tmp/geoserver

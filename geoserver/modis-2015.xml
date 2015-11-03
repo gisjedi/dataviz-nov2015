@@ -2,9 +2,9 @@
   <name>modis-2015</name>
   <nativeName>modis_2015</nativeName>
   <namespace>
-    <name>test</name>
+    <name>feature</name>
   </namespace>
-  <title>modis-2015</title>
+  <title>MODIS (2015)</title>
   <keywords>
     <string>features</string>
     <string>modis-2015</string>
@@ -59,7 +59,7 @@
     <entry key="cachingEnabled">false</entry>
   </metadata>
   <store class="dataStore">
-    <name>testdb</name>
+    <name>modis</name>
   </store>
   <maxFeatures>0</maxFeatures>
   <numDecimals>0</numDecimals>

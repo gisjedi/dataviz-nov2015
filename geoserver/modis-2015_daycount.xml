@@ -2,7 +2,7 @@
   <name>modis-2015_daycount</name>
   <nativeName>modis-2015_daycount</nativeName>
   <namespace>
-    <name>test</name>
+    <name>feature</name>
   </namespace>
   <title>modis-2015_daycount</title>
   <keywords>
@@ -92,7 +92,7 @@ group by date_trunc(&apos;day&apos;, date)
     </entry>
   </metadata>
   <store class="dataStore">
-    <name>test</name>
+    <name>modis</name>
   </store>
   <maxFeatures>0</maxFeatures>
   <numDecimals>0</numDecimals>

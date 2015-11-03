@@ -1,0 +1,9 @@
+<coverageStore>
+    <name>viirs-dnb</name>
+    <type>ImageMosaic</type>
+    <enabled>true</enabled>
+    <workspace>
+        <name>mosaic</name>
+    </workspace>
+    <url>file:mosiacs/viirs-dnb</url>
+</coverageStore>
