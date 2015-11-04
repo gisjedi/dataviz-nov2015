@@ -140,7 +140,7 @@
         </entry>
         <entry>
             <string>InputTransparentColor</string>
-            <string/>
+            <string>#000000</string>
         </entry>
         <entry>
             <string>OutputTransparentColor</string>
