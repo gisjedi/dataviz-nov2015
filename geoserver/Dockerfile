@@ -1,6 +1,6 @@
 #--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 FROM tomcat:7-jre7
-MAINTAINER Jonathan Meyer<jon@gisjedi.com> 
+MAINTAINER Jonathan Meyer<jon@gisjedi.com>
 
 RUN  export DEBIAN_FRONTEND=noninteractive
 ENV  DEBIAN_FRONTEND noninteractive
@@ -8,7 +8,7 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 
 #-------------Application Specific Stuff ----------------------------------------------------
 
-RUN apt-get -y install unzip curl
+RUN apt-get -y install unzip curl gdal-bin
 
 ENV GEOSERVER_VERSION 2.7.3
 ENV MARLIN_VERSION 0.4.5
