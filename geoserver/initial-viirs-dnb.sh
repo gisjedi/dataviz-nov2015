@@ -14,7 +14,7 @@ ACCEPT_PATTERN='npp_viirs_adaptive_dnb*.tif'
 # -A Accept pattern to use for files.
 # -r Recursively search the directory tree.
 
-wget -nc -nd -np --follow-ftp -A ${ACCEPT_PATTERN} -r ${FTP_URL}
+wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -r ${FTP_URL}
 
 cp /tmp/geoserver/viirs-dnb/* ${VIIRS_DIR}
 
