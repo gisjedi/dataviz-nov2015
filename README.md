@@ -1,5 +1,5 @@
 # DataViz Nov 2015 
-Scripts to construct docker containers and populate with a up to date MODIS and VIIRS DNB data. Compose support for a full stand up of OGC Preview and GeoServer fronting PostGIS.
+Scripts to construct docker containers and populate with up to date MODIS and VIIRS DNB data. Compose support for a full stand up of OGC Preview and GeoServer fronting PostGIS.
 
 ## Build
 Construct the GeoServer and Apache containers by running build:
@@ -12,11 +12,11 @@ Create daemonized instance of the containers:
 ```docker-compose up -d```
 
 ## Initialize
-Populate the PostGIS with MODIS data and GeoServer with layer exposing table:
+Populate PostGIS with MODIS data and GeoServer with layer exposing table:
 
 ```bash initial-modis.sh```
 
-Populate the PostGIS with VIIRS data footprints and GeoServer with layer exposing GeoTIFFs:
+Populate PostGIS with VIIRS data footprints and GeoServer with layer exposing GeoTIFFs:
 
 ```bash initial-viirs-dnb.sh```
 
