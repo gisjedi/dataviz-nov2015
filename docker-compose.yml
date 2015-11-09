@@ -15,3 +15,10 @@ geoserver:
   volumes:
   - ./geoserver_data:/srv/geoserver
   - ./geoserver:/tmp/geoserver
+preview:
+  build: preview 
+  hostname: preview
+  ports:
+  - "80:80"
+  links:
+  - geoserver:geoserver

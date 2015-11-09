@@ -1,13 +1,13 @@
-# docker-compose-geodata
-Scripts to construct docker containers and populate with a up to date MODIS and VIIRS DNB data.
+# DataViz Nov 2015 
+Scripts to construct docker containers and populate with a up to date MODIS and VIIRS DNB data. Compose support for a full stand up of OGC Preview and GeoServer fronting PostGIS.
 
 ## Build
-Construct the GeoServer container by running build:
+Construct the GeoServer and Apache containers by running build:
 
 ```docker-compose build```
 
 ## Daemonize
-Create daemonized instance of the PostGIS and GeoServer containers:
+Create daemonized instance of the containers:
 
 ```docker-compose up -d```
 
@@ -21,6 +21,6 @@ Populate the PostGIS with VIIRS data footprints and GeoServer with layer exposin
 ```bash initial-viirs-dnb.sh```
 
 ## Prosper
-Identify your GeoServer containers IP and start consuming the services:
+Access your newly constructed containers on either http://localhost (Linux only) or identify the IP of your virtualized docker host (Mac / Windows):
 
-```docker inspect `docker ps | grep geoserver | cut -f 1 -d " "` | grep IPA | cut -d "\"" -f 4```
+```docker-machine ip default```
