@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Image Mosaics Presentation</title>
+
+		<meta name="description" content="Overview on technologies and steps to create a dynamic, temporal image mosaic">
+		<meta name="author" content="Jonathan Meyer">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+
+				<section>
+					<h1>Image Mosaics</h1>
+					<h3>OGC WMS via GeoServer</h3>
+					<p>
+						<small>Presentation by <a href="http://github.com/gisjedi/">Jonathan Meyer</a>
+                        <br/>Applied Information Sciences</small>
+
+					</p>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+                    <ul>
+                        <li>Motivation</li>
+                        <li>Standards</li>
+                        <li>Dataset</li>
+                        <li>Software</li>
+                        <li>Automation</li>
+                        <li>Review</li>
+                        <li>Links</li>
+                    </ul>
+				</section>
+
+				<section>
+					<h2>Motivation</h2>
+                    <p>Provide single point of access to thousands of images individually or as composite mosaic.</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+                    <h2>Standards</h2>
+                    <p>Open Geospatial Consortium (OGC) is the governing body for a host of geospatial data standards.</p>
+                    <p>The OGC Web Map Service (WMS) specification provides an HTTP interface to visualize geospatial data.</p>
+				</section>
+
+				<section>
+					<h2>Dataset</h2>
+					<p>
+						Suomi National Polar-orbiting Partnership (NPP) satelite VIIRS sensor, a scanning radiometer, collects visible and infrared imagery and radiometric measurements of the land, atmosphere, cryosphere, and oceans.
+					</p>
+                    <p>
+						Day / Night Band used due to the publicly available datasets continuously distributed with current coverage.
+					</p>
+				</section>
+
+				<section>
+					<h2>Software</h2>
+                    <p>Leveraging a fully FOSS stack:</p>
+                    <ul>
+                        <li>PostgreSQL / PostGIS</li>
+                        <li>GeoServer</li>
+                        <li>OGC Preview</li>
+                    </ul>
+				</section>
+
+				<section>
+					<h2>Automation</h2>
+
+					<p>Your time is valuable. Don't repeat yourself.  Use:</p>
+                    <ul>
+                        <li>GeoServer REST API</li>
+                        <li>Docker</li>
+                        <li>Scripting (Python/BASH/Perl *gasp*)</li>
+                    </ul>
+				</section>
+
+                <section>
+					<h2>Demo</h2>
+
+                    <ul>
+                        <li>Docker Compose Start</li>
+                        <li>Image Mosaic Configuration (PostGIS/GeoServer)</li>
+                        <li>WMS Query Examples (temporal/attribute)</li>
+                        <li>REST API Seeding and Manipulation</li>
+                        <li>OGC Preview Visualization</li>
+                    </ul>
+				</section>
+
+                <section>
+                    <h2>Review</h2>
+
+                    <ul>
+                        <li>GeoServer provides OGC WMS exposure of images</li>
+                        <li>Footprint index stored in PostGIS</li>
+                        <li>GDAL for mosaic performance optimization</li>
+                        <li>Isolation and reproducibility via Docker and GeoServer REST API</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Links</h2>
+
+                    <ul>
+                        <li>GeoServer Image Mosaic Tutorial</li>
+                        <li>Image Mosaic Configuration Reference</li>
+                        <li>GeoServer REST API Reference</li>
+                        <li>Docker Compose Reference</li>
+                    </ul>
+                </section>
+
+
+				<section>
+					<h1>Questions?</h1>
+					<p>Source code &amp; presentation<br/><a href="http://gisjedi.github.io/dataviz-nov2015">http://gisjedi.github.io/dataviz-nov2015</a>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
