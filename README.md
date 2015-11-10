@@ -1,6 +1,8 @@
 # DataViz Nov 2015 
 Scripts to construct docker containers and populate with up to date MODIS and VIIRS DNB data. Compose support for a full stand up of OGC Preview and GeoServer fronting PostGIS.
 
+Slides can be found at http://gisjedi.github.io/dataviz-nov2015
+
 ## Build
 Construct the GeoServer and Apache containers by running build:
 
@@ -24,3 +26,5 @@ Populate PostGIS with VIIRS data footprints and GeoServer with layer exposing Ge
 Access your newly constructed containers on either http://localhost (Linux only) or identify the IP of your virtualized docker host (Mac / Windows):
 
 ```docker-machine ip default```
+
+Access OGC preview at either http://localhost/ or http://yourip/
