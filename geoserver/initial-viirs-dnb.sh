@@ -16,17 +16,18 @@ DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/*/geotiff'
 # -I Accept pattern to only include directories containing needed files.
 # -r Recursively search the directory tree.
 
-wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -I "${DIR_ACCEPT_PATTERN}" -r "${FTP_URL}"
+#wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -I "${DIR_ACCEPT_PATTERN}" -r "${FTP_URL}"
 
 # Create inner tiles and overviews to ensure snappy rendering performance
-for FILE in `ls *.tif`; do
-    echo ${FILE}
-    gdal_translate -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" ${FILE} tiled_${FILE}
-    gdaladdo -r average tiled_${FILE} 2 4 8 16 32
-    mv tiled_${FILE} ${FILE}
-done
+#for FILE in `ls *.tif`; do
+#    echo ${FILE}
+#    gdal_translate -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" ${FILE} tiled_${FILE}
+#    gdaladdo -r average tiled_${FILE} 2 4 8 16 32
+#    mv tiled_${FILE} ${FILE}
+#done
 
 cp /tmp/geoserver/viirs-dnb/* ${VIIRS_DIR}
+ls ${VIIRS_DIR} | grep -v .tif | xargs rm -fr 
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 curl -v -u admin:geoserver -XDELETE http://localhost:8080/geoserver/rest/workspaces/mosaic?recurse=true

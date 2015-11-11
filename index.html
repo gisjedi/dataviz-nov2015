@@ -75,18 +75,12 @@
 				<!-- Example of nested vertical slides -->
 				<section>
                     <h2>Standards</h2>
-                    <p>Open Geospatial Consortium (OGC) is the governing body for a host of geospatial data standards.</p>
-                    <p>The OGC Web Map Service (WMS) specification provides an HTTP interface to visualize geospatial data.</p>
+                    <p>Open Geospatial Consortium (OGC) Web Map Service (WMS) complaint HTTP service.
 				</section>
 
 				<section>
 					<h2>Dataset</h2>
-					<p>
-						Suomi National Polar-orbiting Partnership (NPP) satelite VIIRS sensor, a scanning radiometer, collects visible and infrared imagery and radiometric measurements of the land, atmosphere, cryosphere, and oceans.
-					</p>
-                    <p>
-						Day / Night Band used due to the publicly available datasets continuously distributed with current coverage.
-					</p>
+					<p>Suomi National Polar-orbiting Partnership (NPP) satellite VIIRS sensor Day / Night Band collections.</p>
 				</section>
 
 				<section>
@@ -111,15 +105,58 @@
 				</section>
 
                 <section>
-					<h2>Demo</h2>
+                    <section>
+                        <h2>Demo</h2>
 
-                    <ul>
-                        <li>Docker Compose Start</li>
-                        <li>Image Mosaic Configuration (PostGIS/GeoServer)</li>
-                        <li>WMS Query Examples (temporal/attribute)</li>
-                        <li>REST API Seeding and Manipulation</li>
-                        <li>OGC Preview Visualization</li>
-                    </ul>
+                        <ul>
+                            <li>Stack Initialization</li>
+                            <li>Image Mosaic Configuration</li>
+                            <li>WMS Query Examples</li>
+                            <li>REST API Seeding and Manipulation</li>
+                            <li>OGC Preview Visualization</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Stack Initialization</h3>
+                        <pre><code data-trim contenteditable>
+docker-compose build
+
+docker-compose up -d
+					</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Image Mosaic Configuration</h3>
+                        <p>indexer.properties</p>
+                        <pre><code data-trim contenteditable>
+TimeAttribute=collect_time
+Schema=*the_geom:Polygon,location:String,collect_time:java.util.Date
+PropertyCollectors=TimestampFileNameExtractorSPI[timeregex](collect_time)
+Caching=false
+AbsolutePath=true
+Name=viirs_dnb
+					</code></pre>
+                        <p>timeregex.properties</p>
+                        <pre><code data-trim contenteditable>
+regex=[0-9]{8}_[0-9]{6},format=yyyyMMdd_HHmmss
+					</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>WMS Query Examples</h3>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h3>REST API Seeding and Manipulation</h3>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h3>OGC Preview Visualization</h3>
+                        <p></p>
+                    </section>
+
 				</section>
 
                 <section>
