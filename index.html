@@ -57,8 +57,8 @@
 					<h2>Agenda</h2>
                     <ul>
                         <li>Motivation</li>
-                        <li>Standards</li>
                         <li>Dataset</li>
+                        <li>Standards</li>
                         <li>Software</li>
                         <li>Automation</li>
                         <li>Demo</li>
@@ -72,15 +72,14 @@
                     <p>Provide single point of access to thousands of images individually or as composite mosaic.</p>
 				</section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-                    <h2>Standards</h2>
-                    <p>Open Geospatial Consortium (OGC) Web Map Service (WMS) complaint HTTP service.
+                <section>
+					<h2>Dataset</h2>
+					<p>Suomi National Polar-orbiting Partnership (NPP) satellite VIIRS sensor Day / Night Band collections.</p>
 				</section>
 
 				<section>
-					<h2>Dataset</h2>
-					<p>Suomi National Polar-orbiting Partnership (NPP) satellite VIIRS sensor Day / Night Band collections.</p>
+                    <h2>Standards</h2>
+                    <p>Open Geospatial Consortium (OGC) Web Map Service (WMS) complaint HTTP service.
 				</section>
 
 				<section>
@@ -122,6 +121,8 @@
 docker-compose build
 
 docker-compose up -d
+
+bash initial-viirs-dnb.sh
 					</code></pre>
                     </section>
 
@@ -135,26 +136,54 @@ PropertyCollectors=TimestampFileNameExtractorSPI[timeregex](collect_time)
 Caching=false
 AbsolutePath=true
 Name=viirs_dnb
-					</code></pre>
+					    </code></pre>
                         <p>timeregex.properties</p>
                         <pre><code data-trim contenteditable>
 regex=[0-9]{8}_[0-9]{6},format=yyyyMMdd_HHmmss
-					</code></pre>
+                        </code></pre>
+                        <p>fileregex.properties</p>
+                        <pre><code data-trim contenteditable>
+regex=.*
+                        </code></pre>
                     </section>
 
                     <section>
                         <h3>WMS Query Examples</h3>
-                        <p></p>
+                        <p>Last 24 hours of data (relative to server time):</p>
+                        <pre><code data-trim contenteditable>
+/geoserver/wms/reflect?
+layers=mosaic:viirs-dnb&time=p1d/present
+                        </code></pre>
+                        <p>Only data for the 10th:</p>
+                        <pre><code data-trim contenteditable>
+/geoserver/wms/reflect?
+layers=mosaic:viirs-dnb&time=2015-11-10/2015-11-11
+                        </code></pre>
                     </section>
 
                     <section>
-                        <h3>REST API Seeding and Manipulation</h3>
-                        <p></p>
+                        <h3>Mosaic REST API</h3>
+                        <p>List images in mosaic:</p>
+                        <pre><code data-trim contenteditable>
+/geoserver/rest/workspaces/mosaic/coveragestores/viirs-dnb/
+coverages/viirs-dnb/index/granules.json [GET]
+                        </code></pre>
+                        <p>Delete image by name from mosaic:</p>
+                        <pre><code data-trim contenteditable>
+/geoserver/rest/workspaces/mosaic/coveragestores/viirs-dnb/
+coverages/viirs-dnb/index/granules.json?filter=file_name=
+'npp_viirs_adaptive_dnb_20151111_230621_wgs84_fit' [DELETE]
+                        </code></pre>
+                        <p>Add image by system path to mosaic:</p>
+                        <pre><code data-trim contenteditable>
+/geoserver/rest/workspaces/mosaic/coveragestores/
+viirs-dnb/external.imagemosaic
+[POST with file system URL as body]
+                        </code></pre>
                     </section>
 
                     <section>
                         <h3>OGC Preview Visualization</h3>
-                        <p></p>
                     </section>
 
 				</section>
@@ -164,7 +193,7 @@ regex=[0-9]{8}_[0-9]{6},format=yyyyMMdd_HHmmss
 
                     <ul>
                         <li>GeoServer to provide OGC WMS exposure of images</li>
-                        <li>Footprint index stored in PostGIS</li>
+                        <li>Footprint index stored in PostGIS, column index as needed</li>
                         <li>GDAL for mosaic performance optimization</li>
                         <li>Isolation and reproducibility via Docker and GeoServer REST API</li>
                     </ul>
