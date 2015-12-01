@@ -10,6 +10,8 @@ cd ${DATA_DIR}
 FTP_URL='ftp://ftp.ssec.wisc.edu/pub/eosdb/npp/viirs/'
 ACCEPT_PATTERN='npp_viirs_adaptive_dnb*.tif'
 DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/*/geotiff'
+# If you don't want to pull all 5 days you can use the following as a template to further restrict by day
+#DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/2015_11_30_*/geotiff,pub/eosdb/npp/viirs/2015_12_01_*/geotiff'
 # -nc No clobber, i.e. don't retrieve existing files.
 # -nd No directories. Flatten the tree and place all files in current directory.
 # -np No parent. Don't ascend the directory tree.
