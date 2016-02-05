@@ -1,0 +1,9 @@
+<coverageStore>
+    <name>landsat</name>
+    <type>ImageMosaic</type>
+    <enabled>true</enabled>
+    <workspace>
+        <name>mosaic</name>
+    </workspace>
+    <url>file:mosaics/landsat</url>
+</coverageStore>

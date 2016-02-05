@@ -24,10 +24,10 @@ cd ${DATA_DIR}
 
 S3_URL='http://ais-landsat.s3.amazonaws.com/LC80270392015025LGN00.tar.gz'
 wget ${S3_URL}
-tar -xzvf ../data/LC80270392015025LGN00.tar.gz
+tar -xzvf LC80270392015025LGN00.tar.gz
 
 # Create inner tiles and overviews to ensure snappy rendering performance
-for FILE in `ls ../data/*.tif`; do
+for FILE in `ls *.tif`; do
     echo ${FILE}
     gdal_translate -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" ${FILE} tiled_${FILE}
     gdaladdo -r average tiled_${FILE} 2 4 8 16 32
