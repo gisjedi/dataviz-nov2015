@@ -7,9 +7,9 @@ mkdir -p ${DATA_DIR}
 mkdir -p ${CONFIG_DIR}
 cd ${DATA_DIR}
 
-FTP_URL='ftp://ftp.ssec.wisc.edu/pub/eosdb/npp/viirs/'
-ACCEPT_PATTERN='npp_viirs_adaptive_dnb*.tif'
-DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/*/geotiff'
+#FTP_URL='ftp://ftp.ssec.wisc.edu/pub/eosdb/npp/viirs/'
+#ACCEPT_PATTERN='npp_viirs_adaptive_dnb*.tif'
+#DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/*/geotiff'
 # If you don't want to pull all 5 days you can use the following as a template to further restrict by day
 #DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/2015_11_30_*/geotiff,pub/eosdb/npp/viirs/2015_12_01_*/geotiff'
 # -nc No clobber, i.e. don't retrieve existing files.
@@ -21,6 +21,9 @@ DIR_ACCEPT_PATTERN='pub/eosdb/npp/viirs/*,pub/eosdb/npp/viirs/*/geotiff'
 # -r Recursively search the directory tree.
 
 #wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -I "${DIR_ACCEPT_PATTERN}" -r "${FTP_URL}"
+
+S3_URL='http://ais-landsat.s3.amazonaws.com/LC80270392015025LGN00.tar.gz'
+wget ${S3_URL}
 tar -xzvf ../data/LC80270392015025LGN00.tar.gz
 
 # Create inner tiles and overviews to ensure snappy rendering performance
