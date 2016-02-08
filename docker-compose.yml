@@ -6,17 +6,17 @@ postgis:
   volumes:
   - ./postgis:/tmp/postgis
 geoserver:
-  build: geoserver 
+  build: geoserver
   hostname: geoserver
   ports:
   - "8080:8080"
   links:
   - postgis:postgis
   volumes:
-  - ./geoserver_data:/srv/geoserver
-  - ./geoserver:/tmp/geoserver
+  - /home/ubuntu/landsat-data/geoserver_data:/srv/geoserver
+  - /home/ubuntu/landsat-data/geoserver:/tmp/geoserver
 preview:
-  build: preview 
+  build: preview
   hostname: preview
   ports:
   - "80:80"
