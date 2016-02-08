@@ -13,8 +13,8 @@ geoserver:
   links:
   - postgis:postgis
   volumes:
-  - /home/ubuntu/landsat-data/geoserver_data:/srv/geoserver
-  - /home/ubuntu/landsat-data/geoserver:/tmp/geoserver
+  - ./geoserver_data:/srv/geoserver
+  - ./geoserver:/tmp/geoserver
 preview:
   build: preview
   hostname: preview
