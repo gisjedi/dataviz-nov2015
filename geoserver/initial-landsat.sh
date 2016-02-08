@@ -22,10 +22,14 @@ cd ${DATA_DIR}
 
 #wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -I "${DIR_ACCEPT_PATTERN}" -r "${FTP_URL}"
 
-S3_URL='http://ais-landsat.s3.amazonaws.com/LC80270392015025LGN00.tar.gz'
-wget ${S3_URL}
-tar -xzvf LC80270392015025LGN00.tar.gz
-rm LC80270392015025LGN00.tar.gz
+S3_URL='http://ais-landsat.s3.amazonaws.com/'
+wget -A "*.tar.gz" "${S3_URL}"
+
+# Expand archives
+for ARCHIVE in `ls *.tar.gz`; do
+    tar -xzvf ${ARCHIVE}
+    rm ${ARCHIVE}
+done
 
 # Create inner tiles and overviews to ensure snappy rendering performance
 for FILE in `ls *.TIF`; do
