@@ -22,17 +22,17 @@ cd ${DATA_DIR}
 
 #wget -nc -nd -np --follow-ftp -A "${ACCEPT_PATTERN}" -I "${DIR_ACCEPT_PATTERN}" -r "${FTP_URL}"
 
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015025LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015073LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015105LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015121LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015153LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015201LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015217LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015249LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015281LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015313LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015025LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015073LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015105LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015121LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015153LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015201LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015217LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015249LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015281LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015313LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
 wget 'https://s3.amazonaws.com/ais-landsat/LO80270392015041LGN00.tar.gz'
 
 for ARCHIVE_FILE in `ls *.tar.gz`; do
