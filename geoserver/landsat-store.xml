@@ -5,5 +5,5 @@
     <workspace>
         <name>mosaic</name>
     </workspace>
-    <url>file:data/landsat</url>
+    <url>file:mosaics/landsat</url>
 </coverageStore>
