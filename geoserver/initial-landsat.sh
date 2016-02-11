@@ -32,8 +32,8 @@ cd ${DATA_DIR}
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015249LGN00.tar.gz'
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015281LGN00.tar.gz'
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015313LGN00.tar.gz'
-#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
-wget 'https://s3.amazonaws.com/ais-landsat/LO80270392015041LGN00.tar.gz'
+wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
+#wget 'https://s3.amazonaws.com/ais-landsat/LO80270392015041LGN00.tar.gz'
 
 for ARCHIVE_FILE in `ls *.tar.gz`; do
     tar -xzvf ${ARCHIVE_FILE}
