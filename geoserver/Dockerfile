@@ -9,6 +9,8 @@ RUN  dpkg-divert --local --rename --add /sbin/initctl
 #-------------Application Specific Stuff ----------------------------------------------------
 
 RUN apt-get update && apt-get -y install unzip curl gdal-bin
+RUN apt-get install python
+RUN apt-get install python-gdal
 
 ENV GEOSERVER_VERSION 2.7.3
 ENV MARLIN_VERSION 0.4.5
