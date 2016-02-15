@@ -32,21 +32,32 @@ cd ${DATA_DIR}
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015249LGN00.tar.gz'
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015281LGN00.tar.gz'
 #wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015313LGN00.tar.gz'
-wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
+#wget 'https://s3.amazonaws.com/ais-landsat/LC80270392015345LGN00.tar.gz'
 #wget 'https://s3.amazonaws.com/ais-landsat/LO80270392015041LGN00.tar.gz'
+wget 'http://landsat-pds.s3.amazonaws.com/L8/027/039/LC80270392015025LGN00/LC80270392015025LGN00_B2.TIF'
+wget 'http://landsat-pds.s3.amazonaws.com/L8/027/039/LC80270392015025LGN00/LC80270392015025LGN00_B3.TIF'
+wget 'http://landsat-pds.s3.amazonaws.com/L8/027/039/LC80270392015025LGN00/LC80270392015025LGN00_B4.TIF'
 
-for ARCHIVE_FILE in `ls *.tar.gz`; do
-    tar -xzvf ${ARCHIVE_FILE}
-    rm ${ARCHIVE_FILE}
-done
+shopt -s nullglob
+array=(*.TIF)
+gdal_merge -init 255 -o LC80270392015025LGN00_BV.TIF ${array}
+
+rm LC80270392015025LGN00_B2.TIF
+rm LC80270392015025LGN00_B3.TIF
+rm LC80270392015025LGN00_B4.TIF
+
+#for ARCHIVE_FILE in `ls *.tar.gz`; do
+#    tar -xzvf ${ARCHIVE_FILE}
+#    rm ${ARCHIVE_FILE}
+#done
 
 # Create inner tiles and overviews to ensure snappy rendering performance
-for FILE in `ls *.TIF`; do
-    echo ${FILE}
-    gdal_translate -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" ${FILE} tiled_${FILE}
-    gdaladdo -r average tiled_${FILE} 2 4 8 16 32
-    mv tiled_${FILE} ${FILE}
-done
+#for FILE in `ls *.TIF`; do
+#    echo ${FILE}
+#    gdal_translate -co "TILED=YES" -co "BLOCKXSIZE=512" -co "BLOCKYSIZE=512" ${FILE} tiled_${FILE}
+#    gdaladdo -r average tiled_${FILE} 2 4 8 16 32
+#    mv tiled_${FILE} ${FILE}
+#done
 
 # Copy in the mosaic configuration
 cp /tmp/geoserver/landsat/* ${CONFIG_DIR}
